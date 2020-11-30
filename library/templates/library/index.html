@@ -1,0 +1,63 @@
+{% extends 'library/base.html' %}
+
+{% block header %}
+    <div class="header_content">
+        <h1>{{ title }}</h1>
+        <p>{{ msg|safe}}</p>
+    </div>
+{% endblock header %}
+
+{% block content%}
+    <form action="" method="POST">{% csrf_token %}
+        <label for="book">選べ</label>
+        <select name="calam" id="book">
+            {% for item in data %}
+            <option value="id" name="{{ item.name }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    {{ form }}
+    <input type = "submit" value="click">
+
+    <table>
+        <tr>
+            <th>書籍名</th>
+            <th>著者</th>
+            <th>コード</th>
+            <th>価格</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+    {% for item in data %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.code }}</td>
+            <td>¥{{ item.price }}</td>
+            <td>
+                <a href="{% url 'edit' item.id %}">
+                    <button class="edit_button" type="button">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'delete' item.id %}">
+                    <button class="delete_button" type="button">Delete</button>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="{% url 'create' %}">
+                    <button class="register_button" type="button">+登録</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+{% endblock content %}

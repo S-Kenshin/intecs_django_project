@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <table>
+        <tr>
+            <th>data</th>
+        </tr>
+        {% for item in data %} <!--繰り返し表現で登録済みdataを表示する-->
+        <tr>
+            <td>{{ item }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

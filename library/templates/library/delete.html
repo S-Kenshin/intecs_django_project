@@ -1,0 +1,37 @@
+{% extends 'library/base.html' %}
+
+{% block header %}
+<h1>{{ title }}</h1>
+{% endblock header %}
+
+{% block content %}
+<p>※以下のレコードを削除します。</p>
+<table>
+    <tr>
+        <th>書籍名</th>
+        <td>{{ obj.name }}</td>
+    </tr>
+    <tr>
+        <th>著者</th>
+        <td>{{ obj.author }}</td>
+    </tr>
+    <tr>
+        <th>部門コード</th>
+        <td>{{ obj.code }}</td>
+    </tr>
+    <tr>
+        <th>価格</th>
+        <td>{{ obj.price }}</td>
+    </tr>
+    <form action="{% url 'delete' id %}" method="POST">
+    {% csrf_token %}
+    <tr>
+        <td>
+        </td>
+        <td>
+            <input type="submit" value="click">
+        </td>
+    </tr>
+    </form>
+</table>
+{% endblock content %}

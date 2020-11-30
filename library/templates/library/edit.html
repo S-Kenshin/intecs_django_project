@@ -1,0 +1,16 @@
+{% extends 'library/base.html' %}
+
+{% block header %}
+<h1>{{ title }}</h1>
+<p>{{ msg }}</p>
+{% endblock header %}
+
+{% block content %}
+<table>
+    <form action="{% url 'edit' id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <tr><td></td><td><input type="submit" value="click"></td></tr>
+    </form>
+</table>
+{% endblock content %}

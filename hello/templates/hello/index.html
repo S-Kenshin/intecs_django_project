@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ message|safe }}</p>
+    <table>
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="click">
+                </td>
+            </tr>
+        </form>
+    </table>
+    <hr>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>GENDER</th>
+            <th>MAIL</th>
+            <th>AGE</th>
+            <th>BIRTHDAY</th>
+        </tr>
+    {% for item in data %} <!--繰り返し表現で登録済みdataを表示する-->
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name}}</td>
+            <td>{% if item.gender == False %}male{% endif %}</td>
+                {% if item.gender == True %}Female{% endif %}
+            <td>{{ item.mail }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.birthday }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

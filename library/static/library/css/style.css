@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+body {
+    background-color: #F5EDBA;
+    color: rgb(137, 135, 129);
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 0;
+}
+
+
+h1 {
+    color: rgb(148, 144, 119);;
+    font-size: 30pt;
+}
+
+/* table */
+table {
+    margin: 20px 0;
+    /*position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);*/
+}
+
+table tr th {
+    background-color: #4F705D;
+    color: white;
+    padding: 5px 0;
+    border-width: 2px;
+    font-size: 25px;
+}
+
+td {
+    padding: 5px 30px;
+    background-color: #DEDACE;
+    color: rgb(148, 144, 119);
+    font-size: 20px;
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-align: center;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+     user-select: none;
+     color: #333333;
+     background-color: #32cd32;
+     border-bottom: 5px solid #2e8b57;
+     
+}
+
+button:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #fff20a;
+    border-bottom: 2px solid #ccc100;
+}
+
+.edit_button {
+    padding: 2px 10px;
+}
+
+.delete_button {
+    padding: 2px 10px;
+}
+
+.register_button {
+    padding: 2px 15px;
+}
